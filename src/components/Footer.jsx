@@ -1,11 +1,9 @@
-import React from 'react'
+import { Container } from "react-bootstrap";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className="app-footer">
-      <div className="container"> &copy; 2026 Flavor. All rights reserved.</div>
+      <Container>&copy; 2026 Flavor. All rights reserved.</Container>
     </footer>
-  )
+  );
 }
-
-export default Footer

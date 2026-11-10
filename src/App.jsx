@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import Navbar from "./components/Navbar";
 import Pizza from "./components/Pizza";
 import Sidebar from "./components/Sidebar";
@@ -214,7 +215,7 @@ export default function App() {
           onPickAll={() => open("All")}
         />
       ) : (
-        <main className="container menu-view">
+        <Container as="main" className="menu-view">
           <div className="menu-layout">
             <Sidebar
               items={railItems}
@@ -250,10 +251,10 @@ export default function App() {
               />
             </section>
           </div>
-        </main>
+        </Container>
       )}
 
-      <Footer/>
+      <Footer />
     </>
   );
 }

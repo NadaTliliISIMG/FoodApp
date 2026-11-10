@@ -1,3 +1,4 @@
+import { Row, Col } from "react-bootstrap";
 import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products, likedIds, onToggleLike, emptyText }) {
@@ -10,17 +11,17 @@ export default function ProductGrid({ products, likedIds, onToggleLike, emptyTex
   }
 
   return (
-    <div className="row g-4">
+    <Row g={4}>
       {products.map((p, i) => (
-        <div className="col-12 col-sm-6 col-xl-4 plate-col" key={p.id}>
+        <Col xs={12} sm={6} xl={4} className="plate-col" key={p.id}>
           <ProductCard
             product={p}
             index={i}
             liked={likedIds.includes(p.id)}
             onToggleLike={onToggleLike}
           />
-        </div>
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 }

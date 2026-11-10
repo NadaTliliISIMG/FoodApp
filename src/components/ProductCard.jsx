@@ -1,3 +1,5 @@
+import { Card, Button } from "react-bootstrap";
+
 const HEART_OFF = "https://img.icons8.com/ios/50/like--v1.png";
 const HEART_ON = "https://img.icons8.com/color/48/like--v1.png";
 
@@ -7,8 +9,9 @@ export default function ProductCard({ product, index, liked, onToggleLike }) {
   const { name, category, description, price, image } = product;
 
   return (
-    <article
-      className="plate-card"
+    <Card
+      as="article"
+      bsPrefix="plate-card"
       style={{
         "--i": index,
         "--tilt": `${TILTS[index % TILTS.length]}deg`,
@@ -21,14 +24,15 @@ export default function ProductCard({ product, index, liked, onToggleLike }) {
       </div>
       <span className="price-sticker">${price.toFixed(2)}</span>
 
-      <h3 className="dish-name">{name}</h3>
-      <p className="dish-desc">{description}</p>
+      <Card.Title as="h3" bsPrefix="dish-name">{name}</Card.Title>
+      <Card.Text bsPrefix="dish-desc">{description}</Card.Text>
 
       <div className="dish-footer">
         <span className={`dish-tag tag-${category.toLowerCase()}`}>{category}</span>
-        <button
-          type="button"
-          className={`like-btn ${liked ? "liked" : ""}`}
+        <Button
+          bsPrefix="like-btn"
+          variant={null}
+          className={liked ? "liked" : ""}
           onClick={() => onToggleLike(product.id)}
           aria-pressed={liked}
           aria-label={liked ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
@@ -40,8 +44,8 @@ export default function ProductCard({ product, index, liked, onToggleLike }) {
             height="22"
             className={liked ? "" : "icon-mono"}
           />
-        </button>
+        </Button>
       </div>
-    </article>
+    </Card>
   );
 }
